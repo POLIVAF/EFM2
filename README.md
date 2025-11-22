@@ -1,4 +1,4 @@
 
 
 //"pagina de github alojada"
-https://polivaf.github.io/EF-M2-PROYECTO-FINAL/
+git clone https://github.com/POLIVAF/EFM2/
