@@ -1,51 +1,103 @@
 $(document).ready(function () {
 
-  // CLICK en el botón confirmar del modal
+// SMOOTH SCROLL + ANIMATE para enlaces del navbar
+$(document).ready(function () {
+  $('a.nav-link').on('click', function (event) {
+    // Solo para enlaces internos
+    if (this.hash !== "") {
+      event.preventDefault();
+      const hash = this.hash;
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top - 70 // ajustar si navbar fijo
+      }, 1500, 'swing');
+    }
+  });
+});
+
+  // BLOQUEAR caracteres inválidos en tiempo real
+  $("#nombre").on("input", function () {
+    // Permitir solo letras y espacios
+    this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '');
+  });
+
+  $("#telefono").on("input", function () {
+    // Permitir solo números y +
+    this.value = this.value.replace(/[^0-9\+]/g, '');
+  });
+
+  // CLICK en el botón confirmar
   $("#btnConfirmar").on("click", function () {
-    
     let nombre = $("#nombre").val().trim();
     let email = $("#email").val().trim();
     let telefono = $("#telefono").val().trim();
-    let errores = [];
+    let entrada = $("#entrada").val();
 
-    // Expresiones regulares
-    const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
-    const regexTelefono = /^\+?\d{7,15}$/;  // solo números y + opcional
+    // Limpiar alertas previas
+    $(".invalid-feedback").remove();
+    $("#alertaFormulario").removeClass("alert alert-success alert-danger").addClass("d-none").html("");
 
-    // Validaciones
-    if (!regexNombre.test(nombre)) {
-      errores.push("El nombre solo debe contener letras.");
-      console.error("❌ Error: nombre inválido");
+    let errores = false;
+
+    // Validación Nombre
+    if (!nombre) {
+      $("#nombre").after('<div class="invalid-feedback d-block text-danger">Campo obligatorio</div>');
+      console.error("❌ Error: Nombre vacío");
+      errores = true;
     }
 
-    if (!regexEmail.test(email)) {
-      errores.push("El email debe ser un correo válido.");
-      console.error("❌ Error: email inválido");
+    // Validación Email
+    if (!email) {
+      $("#email").after('<div class="invalid-feedback d-block text-danger">Campo obligatorio</div>');
+      console.error("❌ Error: Email vacío");
+      errores = true;
+    } else {
+      const regexEmail = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+      if (!regexEmail.test(email)) {
+        $("#email").after('<div class="invalid-feedback d-block text-danger">Email inválido</div>');
+        console.error("❌ Error: Email inválido");
+        errores = true;
+      }
     }
 
-    if (!regexTelefono.test(telefono)) {
-      errores.push("El teléfono debe ser real (solo números y + opcional).");
-      console.error("❌ Error: teléfono inválido");
+    // Validación Teléfono
+    if (!telefono) {
+      $("#telefono").after('<div class="invalid-feedback d-block text-danger">Campo obligatorio</div>');
+      console.error("❌ Error: Teléfono vacío");
+      errores = true;
     }
 
-    // Mostrar errores en el DOM
-    if (errores.length > 0) {
-      $("#alertaFormulario")
-        .removeClass("alert-success d-none")
-        .addClass("alert-danger")
-        .html("<strong>Error:</strong><br>" + errores.join("<br>"));
+    // Validación Entrada
+    if (!entrada) {
+      $("#entrada").after('<div class="invalid-feedback d-block text-danger">Debe seleccionar un tipo de entrada</div>');
+      console.error("❌ Error: Entrada no seleccionada");
+      errores = true;
+    }
+
+    if (errores) {
+      console.log("❌ Formulario incompleto");
+      setTimeout(() => {
+        $(".invalid-feedback").fadeOut(500, function() { $(this).remove(); });
+      }, 3000);
       return;
     }
 
-    // Si está todo OK
+    // Si todo es válido
     console.log("✔️ Formulario completado con éxito");
-
     $("#alertaFormulario")
-      .removeClass("alert-danger d-none")
-      .addClass("alert-success")
-      .html("<strong>Reservación exitosa:</strong> Te has inscrito correctamente.");
+      .removeClass("d-none alert-danger")
+      .addClass("alert alert-success")
+      .html("<strong>Reservación exitosa:</strong> Te has inscrito correctamente.")
+      .fadeIn();
 
-  }); // <-- Cierre del click
+    setTimeout(() => {
+      $("#alertaFormulario").fadeOut(500, function () {
+        $(this).addClass("d-none").removeClass("alert alert-success").html("");
+      });
+    }, 6000);
 
-}); // <-- Cierre del document ready
+    // Limpiar formulario
+    $("#formRegistro")[0].reset();
+  });
+});
+

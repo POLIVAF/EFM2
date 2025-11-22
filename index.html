@@ -18,11 +18,11 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom bg-dark fixed-top py-3">
   <div class="container d-flex align-items-center">
 
     <!-- Marca a la izquierda -->
-    <a class="navbar-brand fw-bold fs-3 m-0" href="#">IA Summer</a>
+    <a class="navbar-brand fw-bold fs-2 m-1" href="#">IA Summer</a>
 
     <!-- Botón móvil -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -31,7 +31,7 @@
 
     <!-- Menú a la derecha -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto d-flex gap-3">
+      <ul class="navbar-nav ms-auto d-flex gap-4">
         <li class="nav-item">
           <a class="nav-link text-white" href="#inicio">Inicio</a>
         </li>
@@ -111,7 +111,7 @@
 
     <!-- REGISTRO  -->
     <section id="registro" class="py-5 text-center">
-      <h2 class="display-4 mb-5">Inscribete</h2>
+      <h2 class="display-4 mb-5">Registro</h2>
       <div class="row justify-content-center">
         <div class="col-lg-6">
           <button type="button" class="btn btn-primary btn-lg px-5" data-bs-toggle="modal" data-bs-target="#registroModal">
@@ -122,35 +122,54 @@
     </section>
 
     <!-- Modal de Registro -->
-    <div class="modal fade" id="registroModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header bg-primary text-white">
-            <h5 class="modal-title">Refistro</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3"><input type="text" class="form-control" placeholder="Nombre completo" required></div>
-              <div class="mb-3"><input type="email" class="form-control" placeholder="Email" required></div>
-              <div class="mb-3"><input type="tel" class="form-control" placeholder="Teléfono"></div>
-              
-            </form>
-               <div class="mb-3">
-                <select id="entrada" class="form-select" required>
-                  <option value="">Seleccione una entrada</option>
-                  option>General</option>
-                  <option>VIP</option>
-                  <option>General</option>
-                </select>
-              </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-success">Confirmar Inscripción</button>
-          </div>
-        </div>
+<div class="modal fade" id="registroModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Header -->
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Registro</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+
+        <!-- ALERTA (oculta al inicio) -->
+        <div id="alertaFormulario" class="alert d-none"></div>
+
+        <form id="formRegistro">
+          <div class="mb-3">
+            <input id="nombre" type="text" class="form-control" placeholder="Nombre completo" required>
+          </div>
+
+          <div class="mb-3">
+            <input id="email" type="email" class="form-control" placeholder="Email" required>
+          </div>
+
+          <div class="mb-3">
+            <input id="telefono" type="tel" class="form-control" placeholder="Teléfono" required>
+          </div>
+
+          <div class="mb-3">
+            <select id="entrada" class="form-select" required>
+              <option value="">Seleccione una entrada</option>
+              <option>General</option>
+              <option>VIP</option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button id="btnConfirmar" type="button" class="btn btn-success">Confirmar Inscripción</button>
+      </div>
+
     </div>
+  </div>
+</div>
 
   </main>
 

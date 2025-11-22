@@ -1,26 +1,41 @@
 :root {
-  --primary: #4361ee;
-  --dark: #240046;
-  --light: #f8f9fa;
+  /* Colores principales */
+  --primary: #4361ee;       /* Azul principal */
+  --purple: #861beb;        /* Morado para gradientes y detalles */
+  --dark: #240046;          /* Morado oscuro */
+  --light: #f8f9fa;         /* Fondo claro */
+  --gold: #ffd700;           /* Amarillo para hover y link activo */
+  --footer-gradient-start: #3a0ca3;
+  --footer-gradient-middle: #7209b7;
+  --footer-gradient-end: #b5179e;
+
+  /* Tipografía */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
 }
 
-h1 {
-  font-size: calc(3rem + 4vw);
-  font-weight: 800;
-  line-height: 1.1;
+body {
+  font-family: var(--font-body);
+  background-color: var(--light);
+  color: var(--dark);
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+}
+
+/* HERO */
 .hero {
   position: relative;
   min-height: 100vh;
   color: white;
-  overflow: hidden;
   display: flex;
   align-items: center;
-  background: url("https://images.unsplash.com/photo-1505373877841-8d25f771d0b7?q=80&w=2012")
-    center/cover no-repeat;
+  overflow: hidden;
+  
 }
 
-/* Capa animada respirando */
 .hero::before {
   content: "";
   position: absolute;
@@ -31,7 +46,6 @@ h1 {
   z-index: 1;
 }
 
-/* PATRÓN HEXAGONAL */
 .hero::after {
   content: "";
   position: absolute;
@@ -43,32 +57,42 @@ h1 {
   pointer-events: none;
 }
 
-/* Para que el contenido quede arriba */
 .hero > * {
   position: relative;
   z-index: 2;
 }
 
 @keyframes breathing {
-  0% {
-    background-position: 0% 50%;
-    filter: brightness(0.95);
-  }
-  50% {
-    background-position: 100% 50%;
-    filter: brightness(1.12);
-  }
-  100% {
-    background-position: 0% 50%;
-    filter: brightness(0.95);
-  }
+  0% { background-position: 0% 50%; filter: brightness(0.95); }
+  50% { background-position: 100% 50%; filter: brightness(1.12); }
+  100% { background-position: 0% 50%; filter: brightness(0.95); }
+}
+
+h1.display-2 {
+  font-size: calc(3rem + 4vw);
+  font-weight: 800;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #f89524, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 5s ease infinite;
+  background-size: 200% 200%;
+
+ /
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 .speaker-img {
   width: 180px;
   height: 180px;
   object-fit: cover;
   border: 5px solid white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 /* FOOTER TRANSPARENTE */
@@ -81,11 +105,10 @@ footer {
   text-align: center;
 }
 
-/* Texto del footer en degradado morado */
 footer p, 
 footer a, 
 footer span {
-  background: linear-gradient(135deg, #3a0ca3, #7209b7, #b5179e);
+  background: linear-gradient(135deg, var(--footer-gradient-start), var(--footer-gradient-middle), var(--footer-gradient-end));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -96,8 +119,48 @@ footer span {
 footer a:hover {
   opacity: 0.75;
 }
+
+/* TITULOS */
 .display-2 {
   font-size: calc(3rem + 4vw) !important;
   font-weight: 800 !important;
   line-height: 1.1;
+}
+
+/* ANIMACIÓN LINKS DEL NAVBAR */
+.navbar-nav .nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--gold);
+  transition: width 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--gold) !important;
+}
+
+.navbar.navbar-dark.navbar-custom {
+  background-color: var(--primary); /* azul de :root */
+}
+
+.navbar.navbar-dark.navbar-custom .nav-link {
+  color: #f8f9fa; /* links claros */
+}
+
+.navbar.navbar-dark.navbar-custom .nav-link:hover,
+.navbar.navbar-dark.navbar-custom .nav-link.active {
+  color: #ffd700; /* hover o activo */
 }
