@@ -1,0 +1,33 @@
+:root {
+  --primary: #4361ee;
+  --dark: #240046;
+  --light: #f8f9fa;
+}
+
+h1 {
+  font-size: calc(2rem + 2vw);
+  font-weight: 700;
+  line-height: 1.2;
+}
+.hero {
+  background: linear-gradient(rgba(36, 0, 70, 0.85), rgba(67, 97, 238, 0.9)),
+    url("https://images.unsplash.com/photo-1505373877841-8d25f771d0b7?q=80&w=2012")
+      center/cover no-repeat;
+  min-height: 100vh;
+  color: white;
+}
+.speaker-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+footer a {
+  color: #a5b4fc;
+  text-decoration: none;
+}
+footer a:hover {
+  color: white;
+}
