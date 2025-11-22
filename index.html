@@ -51,21 +51,60 @@
 </nav>
 
   <!-- HERO SECTION -->
-  <header id="inicio" class="hero d-flex align-items-center">
-    <div class="container text-center">
-      <h1 class="display-2 fw-bold mb-4">AI SUMMER</h1>
-      <p class="lead fs-3 mb-4">CONFERENCIA TEGNOLOGICA 2026</p>
-      <p class="fs-4 mb-5">FEBRERO 2026 · Espacio Riesco </p>
-      
-      <!-- COUNTDOWN -->
-      <div class="countdown text-warning mb-5" id="countdown"></div>
-      
-      <div class="d-grid gap-3 d-md-flex justify-content-center">
-        <a href="#registro" class="btn btn-warning btn-lg px-5 py-3 fs-5">¡Inscríbete Ahora!</a>
-        <a href="#conferencistas" class="btn btn-outline-light btn-lg px-5 py-3 fs-5">Ver Conferencistas</a>
+<header id="inicio" class="hero d-flex align-items-center">
+  <div class="container text-center">
+    <h1 class="display-2 fw-bold mb-4">AI SUMMER</h1>
+    <p class="lead fw-bold fs-2 mb-4">CONFERENCIA TEGNOLOGICA 2026</p>
+    <p class="fw-bold fs-3 mb-5">FEBRERO 2026 · Espacio Riesco </p>
+    
+    <!-- Botones -->
+    <div class="d-grid gap-3 d-md-flex justify-content-center mb-4">
+      <a href="#registro" class="btn btn-warning btn-lg px-5 py-3 fs-5">¡Inscríbete Ahora!</a>
+      <a href="#conferencistas" class="btn btn-outline-light btn-lg px-5 py-3 fs-5">Ver Conferencistas</a>
+    </div>
+
+    <!-- FLIP CLOCK -->
+<div class="countdown-clock mt-5 d-flex justify-content-center flex-wrap" id="flipClock">
+  <div class="flip-unit">
+    <div class="unit-title">Días</div>
+    <div class="flip-card" id="days">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">0</div>
+        <div class="flip-card-back">0</div>
       </div>
     </div>
-  </header>
+  </div>
+  <div class="flip-unit">
+    <div class="unit-title">Horas</div>
+    <div class="flip-card" id="hours">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">0</div>
+        <div class="flip-card-back">0</div>
+      </div>
+    </div>
+  </div>
+  <div class="flip-unit">
+    <div class="unit-title">Minutos</div>
+    <div class="flip-card" id="minutes">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">0</div>
+        <div class="flip-card-back">0</div>
+      </div>
+    </div>
+  </div>
+  <div class="flip-unit">
+    <div class="unit-title">Segundos</div>
+    <div class="flip-card" id="seconds">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">0</div>
+        <div class="flip-card-back">0</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</header>
 
   <main class="container my-5">
 

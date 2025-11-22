@@ -101,3 +101,99 @@ $(document).ready(function () {
   });
 });
 
+// reloj conteo reguesivo
+$(document).ready(function() {
+
+  // FECHA DEL EVENTO
+  const eventDate = new Date("2026-02-01T00:00:00").getTime();
+
+  // FUNCION PARA AGREGAR CEROS
+  function pad(n) {
+    return n < 10 ? "0" + n : n;
+  }
+
+  // CREAR EL HTML DE LAS UNIDADES
+  function createFlipUnit(id, label) {
+    const html = `
+      <div class="flip-unit" id="${id}">
+        <div class="top front">00</div>
+        <div class="bottom back">00</div>
+        <span class="unit-label">${label}</span>
+      </div>`;
+    return html;
+  }
+
+  // AGREGAR EL CONTADOR A LA PÁGINA
+  const countdownContainer = $("#countdown");
+  countdownContainer.html(
+    createFlipUnit("days", "Días") +
+    createFlipUnit("hours", "Horas") +
+    createFlipUnit("minutes", "Minutos") +
+    createFlipUnit("seconds", "Segundos")
+  );
+
+  // FUNCION QUE ANIMA CADA UNIDAD
+  function updateFlipUnit(id, value) {
+    const unit = $("#" + id);
+    const front = unit.find(".front");
+    const back = unit.find(".back");
+
+    if (front.text() !== value) {
+      back.text(value);       // poner el nuevo valor en la parte de atrás
+      unit.addClass("flip");  // iniciar animación
+
+      setTimeout(() => {
+        front.text(value);    // actualizar la parte frontal
+        unit.removeClass("flip"); // reiniciar animación
+      }, 600); // duración igual al CSS
+    }
+  }
+
+  $// Fecha objetivo del evento
+const eventDate = new Date("2026-02-01T00:00:00").getTime();
+
+// Función para actualizar flip clock
+function updateFlipClock() {
+  const now = new Date().getTime();
+  let distance = eventDate - now;
+
+  if (distance < 0) {
+    distance = 0;
+    clearInterval(flipInterval);
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+
+  flipNumber("days", days);
+  flipNumber("hours", hours);
+  flipNumber("minutes", minutes);
+  flipNumber("seconds", seconds);
+}
+
+// Función para animar flip
+function flipNumber(id, value) {
+  const cardInner = document.querySelector(`#${id} .flip-card-inner`);
+  const front = cardInner.querySelector(".flip-card-front");
+  const back = cardInner.querySelector(".flip-card-back");
+
+  if (parseInt(front.textContent) !== value) {
+    back.textContent = value;
+    cardInner.classList.add("flip");
+
+    setTimeout(() => {
+      front.textContent = value;
+      cardInner.classList.remove("flip");
+    }, 700); // duración de la animación
+  }
+}
+
+// **Inicia la cuenta atrás al cargar la página**
+document.addEventListener("DOMContentLoaded", () => {
+  updateFlipClock(); // muestra los valores iniciales
+  flipInterval = setInterval(updateFlipClock, 1000); // actualiza cada segundo
+});
+
+let flipInterval;
