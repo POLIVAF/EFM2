@@ -8,12 +8,17 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <!-- Favicon -->
-  <link rel="icon" href="../EF-M2-PROYECTO-FINAL/asset/img/favicon/favicon.ico" type="image/x-icon"/>
+  <link rel="icon" href="./assets/img/favicon/favicon.ico" type="image/x-icon"/>
   <!-- CSS -->
-  <link rel="stylesheet" href="./asset/css/style.css" />
+  <link rel="stylesheet" href="./EF-M2-PROYECTO-FINAL/asset/css/style.css" />
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
+<!-- favicon -->
+  <link
+      rel="icon"
+      href="../EF-M2-PROYECTO-FINAL/asset/img/favicon/favicon.ico"
+      type="image/x-icon"
+    />
 </head>
 <body>
   <div class="wrapper">
@@ -23,7 +28,7 @@
        <div class="container-fluid">
         <!-- Logo -->
     <a class="navbar-brand" href="#">
-      <img src="../EF-M2-PROYECTO-FINAL/asset/img/logo-32x32.png" alt="IA Summer" height="50">
+      <img src="./EF-M2-PROYECTO-FINAL/asset/img/logo-32x32.png" alt="IA Summer" height="50">
     </a>
         <a class="navbar-brand fw-bold fs-2 m-0" href="#">IA Summer</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -98,20 +103,93 @@
 
       <!-- CONFERENCISTAS -->
       <section id="conferencistas" class="py-5">
-        <h2 class="text-center display-4 mb-5 text-primary">Grandes Conferencistas</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="container">
+        <h2 class="text-center display-4 mb-5 text-primary">Grandes Conferencisyas</h2>
+        
+        <!-- Grid corregido: siempre 3 columnas en desktop, 2 en tablet, 1 en móvil -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+          
+          <!-- Conferencista 1 -->
           <div class="col">
             <div class="card h-100 text-center border-0 shadow-lg">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" class="card-img-top rounded-circle speaker-img mx-auto mt-4" alt="Ana López">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                   class="rounded-circle speaker-img mx-auto mt-4" alt="Conferencista 1">
               <div class="card-body">
                 <h5 class="card-title">Conferencista 1</h5>
-                <p class="text-muted">aqui una</p>
+                <p class="text-muted">de donde viene</p>
                 <p>titulo de la conferencia</p>
               </div>
             </div>
           </div>
+
+          <!-- Conferencista 2 -->
+          <div class="col">
+            <div class="card h-100 text-center border-0 shadow-lg">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                   class="rounded-circle speaker-img mx-auto mt-4" alt="Conferencista 2">
+              <div class="card-body">
+                <h5 class="card-title">Conferencista 2</h5>
+                <p class="text-muted">De donde viene</p>
+                <p>Tema de la conferencia</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conferencista 3 -->
+          <div class="col">
+            <div class="card h-100 text-center border-0 shadow-lg">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+                   class="rounded-circle speaker-img mx-auto mt-4" alt="Conferencista 3">
+              <div class="card-body">
+                <h5 class="card-title">Conferencista 3</h5>
+                <p class="text-muted">De donde viene</p>
+                <p>Titulo de la conferencia</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conferencista 4 -->
+          <div class="col">
+            <div class="card h-100 text-center border-0 shadow-lg">
+              <img src="https://randomuser.me/api/portraits/women/56.jpg" 
+                   class="rounded-circle speaker-img mx-auto mt-4" alt="Conferencista 4">
+              <div class="card-body">
+                <h5 class="card-title">Conferencista 4</h5>
+                <p class="text-muted">de donde viene</p>
+                <p>titulo de la conferencia</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conferencista 5 -->
+          <div class="col">
+            <div class="card h-100 text-center border-0 shadow-lg">
+              <img src="https://randomuser.me/api/portraits/men/9.jpg" 
+                   class="rounded-circle speaker-img mx-auto mt-4" alt="Conferencista 5">
+              <div class="card-body">
+                <h5 class="card-title">Conferencista 5</h5>
+                <p class="text-muted">De donde viene</p>
+                <p>Tema de la conferencia</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conferencista 6 -->
+          <div class="col">
+            <div class="card h-100 text-center border-0 shadow-lg">
+              <img src="https://randomuser.me/api/portraits/women/69.jpg" 
+                   class="rounded-circle speaker-img mx-auto mt-4" alt="Conferencista 6">
+              <div class="card-body">
+                <h5 class="card-title">Conferencista 6</h5>
+                <p class="text-muted">De donde viene</p>
+                <p>Titulo de la conferencia</p>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </section>
+      </div>
+    </section>
 
       <!-- AGENDA  -->
       <section id="agenda" class="py-5 bg-light rounded-4">
