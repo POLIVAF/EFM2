@@ -1,0 +1,79 @@
+/* ============================
+   ESTILOS GENERALES DE SECCIÓN
+=============================== */
+#contacto {
+  background: #f8f9fa; /* gris claro elegante */
+}
+
+#contacto h2 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ============================
+   TARJETA DEL FORMULARIO
+=============================== */
+#contacto .col-md-6 {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================
+   LABELS
+=============================== */
+#contacto label {
+  font-weight: 600;
+}
+
+/* ============================
+   INPUTS / TEXTAREA
+=============================== */
+#contacto .form-control {
+  border-radius: 10px;
+  padding: 12px;
+  border: 1.5px solid #ced4da;
+  transition: all 0.3s ease;
+}
+
+#contacto .form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.3);
+}
+
+/* ============================
+   BOTÓN
+=============================== */
+#contacto button[type="submit"] {
+  border-radius: 10px;
+  padding: 12px 35px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+#contacto button[type="submit"]:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+}
+
+/* ============================
+   MENSAJE DE ÉXITO
+=============================== */
+#mensajeExito {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-top: 10px;
+}
+
+/* ============================
+   MODAL DE ÉXITO
+=============================== */
+#modalExito .modal-content {
+  border-radius: 12px;
+}
+
+#modalExito .btn-success {
+  padding: 10px 25px;
+  border-radius: 10px;
+}
