@@ -1,41 +1,51 @@
-// Espera a que el documento HTML termine de cargarse
 $(document).ready(function () {
 
-  const modalExito = new bootstrap.Modal($('#modalExito'));
-
-  $("#formRegistro").on("submit", function (event) {
-    event.preventDefault(); // Detener envío normal
-
-    console.clear();
-    console.log("Intentando enviar formulario...");
-
-    // Tomar valores
+  // CLICK en el botón confirmar del modal
+  $("#btnConfirmar").on("click", function () {
+    
     let nombre = $("#nombre").val().trim();
     let email = $("#email").val().trim();
-    let password = $("#password").val().trim();
-
+    let telefono = $("#telefono").val().trim();
     let errores = [];
 
-    // Validación simple
-    if (nombre === "") errores.push("Nombre vacío");
-    if (email === "") errores.push("Email vacío");
-    if (password === "") errores.push("Password vacío");
+    // Expresiones regulares
+    const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+    const regexTelefono = /^\+?\d{7,15}$/;  // solo números y + opcional
 
-    // Si hay errores → Mostrar en consola
+    // Validaciones
+    if (!regexNombre.test(nombre)) {
+      errores.push("El nombre solo debe contener letras.");
+      console.error("❌ Error: nombre inválido");
+    }
+
+    if (!regexEmail.test(email)) {
+      errores.push("El email debe ser un correo válido.");
+      console.error("❌ Error: email inválido");
+    }
+
+    if (!regexTelefono.test(telefono)) {
+      errores.push("El teléfono debe ser real (solo números y + opcional).");
+      console.error("❌ Error: teléfono inválido");
+    }
+
+    // Mostrar errores en el DOM
     if (errores.length > 0) {
-      console.warn("⚠ Faltan campos obligatorios:");
-      errores.forEach((e) => console.log("❌ " + e));
-
-      // Opcional: alerta visual
-      alert("Debe completar todos los campos.");
+      $("#alertaFormulario")
+        .removeClass("alert-success d-none")
+        .addClass("alert-danger")
+        .html("<strong>Error:</strong><br>" + errores.join("<br>"));
       return;
     }
 
-    console.log("✔ Formulario válido");
-    console.log("Mostrando modal de éxito...");
+    // Si está todo OK
+    console.log("✔️ Formulario completado con éxito");
 
-    modalExito.show(); // Abrir modal
-  });
+    $("#alertaFormulario")
+      .removeClass("alert-danger d-none")
+      .addClass("alert-success")
+      .html("<strong>Reservación exitosa:</strong> Te has inscrito correctamente.");
 
-});
+  }); // <-- Cierre del click
 
+}); // <-- Cierre del document ready
