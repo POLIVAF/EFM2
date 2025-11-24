@@ -20,7 +20,7 @@ Agenda (Schedule): Un diseño simple para la agenda. Puedes usar un List Group o
 7-.Componentes de Bootstrap Sugeridos: Navbar, Botones, Cards, Formularios, Modal (para la confirmación de registro), List Group.
 
 
->>>>>>>>>>>>>>>>>
+______
 
 Estructura HTML: Tu archivo index.html debe usar etiquetas semánticas de HTML5 para una estructura clara y profesional (por ejemplo, <header>, <nav>, <main>, <section>, <footer>).
 
