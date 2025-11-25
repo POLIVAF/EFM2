@@ -74,7 +74,7 @@ h6 {
   text-align: justify;          /* Justificar el texto */
   font-size: clamp(16px, 20px, 24px); /* Tamaño responsivo */
   line-height: 1.6;             /* Separación entre líneas */
-  color: #0f0f0f;               /* Color de la letra amarillo */
+  color: #0f0f0f;               /* Color de la letra negro */
 }
 
 /* Cambiar color a negro en pantallas menores a 765px */
