@@ -116,6 +116,12 @@ h6 {
   z-index: 2;
 }
 
+.hero .btn {
+  padding: 20px 60px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
 @keyframes breathing {
   0% {
     background-position: 0% 50%;
