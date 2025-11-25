@@ -66,6 +66,23 @@ h6 {
   color: var(--primary);
 }
 
+/* style.css */
+.sobre-evento-text {
+  max-width: 1200px;           /* Ancho máximo del texto */
+  padding: 0rem;               /* Espaciado interno */
+  background-color: transparent; 
+  text-align: justify;          /* Justificar el texto */
+  font-size: clamp(16px, 20px, 24px); /* Tamaño responsivo */
+  line-height: 1.6;             /* Separación entre líneas */
+  color: #FFD700;               /* Color de la letra amarillo */
+}
+
+/* Cambiar color a negro en pantallas menores a 765px */
+@media (max-width: 765px) {
+  .sobre-evento-text {
+    color: black;
+  }
+}
 /* HERO */
 .hero {
   margin: 0;
@@ -180,6 +197,35 @@ h1.display-2 {
   font-weight: 700;
 }
 
+/* Tamaño del botón del acordeón */
+.accordion-button {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #0d6efd; /* Azul */
+  color: white;
+}
+
+/* Cambia color al expandirse */
+.accordion-button:not(.collapsed) {
+  background-color: #0b5ed7;
+}
+
+/* Contenido del acordeón */
+.accordion-body {
+  width: 100%;                /* Ocupa todo el ancho del contenedor */
+  padding: 1.5rem;            /* Espaciado interno */
+  border-top: 1px solid #dee2e6; /* Línea separadora */
+  background-color: #f8f9fa;  /* Fondo ligero para distinguir */
+  display: flex;
+  flex-direction: column;     /* Para que los items queden apilados */
+  gap: 0.75rem;               /* Espacio entre cada item */
+}
+
+/* Opcional: estilo de los items internos */
+.accordion-body li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #dee2e6;
+}
 /* FOOTER */
 footer {
   background: transparent;
