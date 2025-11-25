@@ -226,6 +226,10 @@ h1.display-2 {
   padding: 0.5rem;
   border-bottom: 1px solid #dee2e6;
 }
+
+.modal-header .btn-close {
+  filter: invert(1); /* Forzar que la X se vea blanca */
+}
 /* FOOTER */
 footer {
   background: transparent;
