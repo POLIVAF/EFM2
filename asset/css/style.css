@@ -1,3 +1,18 @@
+/* ============================= */
+/* Fuentes Source Code Pro       */
+/* ============================= */
+@font-face {
+  font-family: "SourceCodePro";
+  src: url("../assets/font/SourceCodePro-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "SourceCodePro";
+  src: url("../assets/font/SourceCodePro-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
 :root {
   /* Colores principales */
   --primary: #4361ee;
@@ -17,6 +32,8 @@
   /* Tipografía */
   --font-heading: "Poppins", sans-serif;
   --font-body: "Open Sans", sans-serif;
+  --font-code-regular: "SourceCodePro", monospace;
+  --font-code-bold: "SourceCodePro", monospace;
 }
 
 body {
@@ -148,6 +165,13 @@ h1.display-2 {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* H2 de Agenda y Registro con SourceCodePro Bold */
+#agenda h2,
+#registro h2 {
+  font-family: "SourceCodePro", monospace;
+  font-weight: 700;
+}
+
 /* FOOTER */
 footer {
   background: transparent;
@@ -195,8 +219,11 @@ footer a:hover {
 
 /* Solo cambiar color de los links a blanco */
 .navbar-nav .nav-link {
+  font-family: "SourceCodePro", monospace;
+  font-weight: 700;              /* ← SourceCodePro-Bold aplicada */
+  font-size: 1rem;
+  letter-spacing: 0.5px;         /* (opcional) más elegante */
   color: #ffffff !important;
-  /* blanco */
   transition: color 0.2s ease;
   position: relative;
 }
@@ -210,6 +237,12 @@ footer a:hover {
 /* Hover sobre LI */
 .navbar-nav .nav-item:hover .nav-link {
   color: #ffd700 !important;
+}
+
+.conferencistas .card-body .card-title,
+.conferencistas .card-body p {
+  font-family: "SourceCodePro", monospace;
+  font-weight: 400;
 }
 
 /* Flip clock */
